@@ -1,0 +1,126 @@
+:root {
+	/* colors */
+	--color-blue: #007bb2;
+	--color-blueCard: #1064a5;
+	--color-dark: #0d1423;
+	--cyan: #0ff;
+	--white: #fff;
+
+	// switch theme color
+	--text: var(--white);
+	--shadow01: rgba(0, 122, 178, 0.514);
+	--shadow02: rgba(0, 0, 0, 0.568);
+	--switch-color: #028ecf;
+	--switch-icon: #fff;
+	--scrollbar: #00000046;
+	--scrollThumb: rgba(80, 77, 77, 0.507);
+}
+.light {
+	--color-blue: #ececec;
+	--color-dark: var(--color-blue);
+	--color-blueCard: #fff;
+	--switch-color: #f3f3f3;
+	--text: #000;
+	--switch-icon: #000;
+	--shadow01: #ffffff;
+	--shadow02: rgba(0, 0, 0, 0.308);
+
+	.themer {
+		.switch {
+			box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.411),
+				inset -2px -2px 2px rgb(255, 255, 255);
+
+			.indicator {
+				box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.288);
+			}
+		}
+	}
+}
+.App {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-width: 350px;
+	min-height: 100vh;
+	background: linear-gradient(var(--color-blue), var(--color-dark));
+	will-change: background;
+	transition: background 1s ease !important;
+}
+
+.themer {
+	position: absolute;
+	top: 10px;
+	right: 2rem;
+	.switch {
+		position: relative;
+		width: 80px;
+		height: 30px;
+		box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.568),
+			inset -2px -2px 5px rgb(10, 140, 226);
+		border-radius: 10px;
+
+		.indicator {
+			cursor: pointer;
+			transition: 0.5s;
+			position: absolute;
+			height: 30px;
+			width: 40px;
+			scale: 0.8;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5rem;
+			color: var(--switch-icon);
+			box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.568);
+			background: var(--switch-color);
+			border-radius: 50%;
+		}
+	}
+}
+.right {
+	transition: 1s;
+	right: 0;
+}
+.title {
+	padding-top: 2rem;
+	h2 {
+		text-transform: uppercase;
+		color: var(--text);
+		font-size: medium;
+	}
+	@media (max-width: 600px) {
+		padding-top: 3rem;
+	}
+}
+
+.cards {
+	display: grid;
+	place-items: center;
+	grid-template-columns: auto;
+	gap: 3rem;
+	padding: 2rem 0;
+	margin-top: 2rem;
+	@media (max-width: 500px) {
+		margin-top: 0;
+	}
+	@media (min-width: 760px) {
+		grid-template-columns: auto auto;
+	}
+	@media (min-width: 1200px) {
+		grid-template-columns: auto auto auto;
+	}
+	@media (min-width: 1400px) {
+		grid-template-columns: auto auto auto auto;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	height: 3px;
+	background: var(--scrollbar);
+}
+::-webkit-scrollbar-thumb {
+	background: var(--scrollThumb);
+	border-radius: 8px;
+}
